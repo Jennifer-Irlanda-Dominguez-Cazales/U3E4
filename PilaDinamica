@@ -1,0 +1,83 @@
+
+package u3e4;
+
+public class PilaDinamica {
+    NodosPilas cima;
+    int tamanio;
+     
+    int tamanio2;
+    NodosPilas cima2;
+    
+    public boolean estaVacia(){
+        return cima==null;
+    }
+    //
+    public void Empujar(int elemento){
+         NodosPilas nodo=new NodosPilas(elemento);
+        if (cima==null) {
+       
+        nodo.siguiente=cima;
+        cima=nodo;
+        tamanio++;
+        }else{
+            if (nodo.elemento<cima.elemento) {
+                 nodo.siguiente=cima2;
+                 cima2=nodo;
+                 tamanio2++;
+            }else{
+                
+                nodo.siguiente=cima;
+                cima=nodo;
+                tamanio++;
+            }
+            
+        }
+        
+       
+    }
+    //
+    public int SacarPila(){
+        int auxiliar=0;
+        if (cima!=null) {
+           /*String */auxiliar=cima.elemento;
+        cima=cima.siguiente;
+        tamanio--;
+        return auxiliar; 
+        }else{
+            if (cima2==null) {
+                System.out.println("La Pila Esta Vacia");
+            return auxiliar;  
+            }
+           
+           
+        }
+        return auxiliar;  
+    }
+    //
+    public void MostrarPila(){
+        if (cima==null&&cima2!=null) {
+            System.out.println("La Pila A esta Vacia");
+        }else{
+            NodosPilas recorre=cima;
+            System.out.println("La Pila A");
+             while(recorre!=null){
+            System.out.print(recorre.elemento+"\t");
+            recorre=recorre.siguiente;
+        }
+        }
+        if (cima==null&&cima2==null) {
+            System.out.println("La Pila A y la Pila B estan vacias");
+        }else{
+            
+        NodosPilas recorre2=cima2;
+        
+        System.out.println("\nPila B");
+        while(recorre2!=null){
+            System.out.print(recorre2.elemento+"\t");
+            recorre2=recorre2.siguiente; 
+        }
+            System.out.println(" ");
+       
+        }
+    }
+}
