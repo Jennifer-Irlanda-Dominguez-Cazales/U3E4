@@ -1,0 +1,59 @@
+
+package u3e4;
+
+import java.util.Scanner;
+
+public class U3E4 {
+
+    public static void main(String[] args) {
+        /*
+        *
+        Profe el programa dice como mil veces que la pila esta vacia a pesar que ya lo dijo una vez
+        lo dice solo cuando es necesario, pero repite mucho :(
+        *
+        */
+      boolean continuar= true;
+        int opcion; 
+        PilaDinamica pila = new PilaDinamica();
+        Scanner leer = new Scanner(System.in);
+        while(continuar){
+            System.out.println("Menu");
+            System.out.println("1.-Insertar");
+            System.out.println("2.-Eleminar");
+            System.out.println("3.-Mostrar\t");
+            System.out.println("4.-Salir");
+           
+           
+            opcion=leer.nextInt();
+             System.out.println("----------");
+            switch(opcion){
+                case 1:
+                    System.out.println("Se insertaron 10 numeros aleatorios");
+                    for (int i = 0; i < 10; i++) {
+                        int numero = (int)(Math.random()*(10)+1);
+                        System.out.print(numero+"\t");
+                        
+                        pila.Empujar(numero);
+                    }
+                    System.out.println("");
+                break;    
+                case 2:
+                    pila.SacarPila();
+                    
+                case 3:
+                    System.out.println("--NOTA-- \n LAS PILAS SE IMPRIMEN DE DERECHA A IZUIERDA   \n 2<---1 \n");
+                    pila.MostrarPila();
+                    
+                break; 
+                case 4:
+                    continuar=false;
+                break; 
+                default:
+                    System.out.println(opcion+" No es una opcion del menu");
+                    break;
+            }
+             System.out.println("----------");
+        }
+    }
+    
+}
